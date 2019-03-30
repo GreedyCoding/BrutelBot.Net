@@ -18,6 +18,8 @@ namespace DiscordBotCore
                 SocketConfig = SocketConfig.GetDefault()
             };
 
+            var connection = Unity.Resolve<Connection>();
+
             await Task.Delay(-1);
         }
     }
