@@ -1,11 +1,8 @@
 ﻿using DiscordBotCore.Storage;
 using DiscordBotCore.Storage.Implementations;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Unity;
+using Unity.Lifetime;
 
 namespace DiscordBotCore
 {
@@ -28,7 +25,14 @@ namespace DiscordBotCore
         public static void RegisterTypes()
         {
             _container = new UnityContainer();
-            _container.RegisterType<IDataStorage, InMemoryStorage>();
+            //ContainerControlledLifetimeManager makes sure only one InMemoryStorage will be used for all IDataStorages
+            _container.RegisterType<IDataStorage, InMemoryStorage>(new ContainerControlledLifetimeManager());
+        }
+
+        public static T Resolve<T>()
+        {
+            //Missing 2 parameters that are used in the tutorial, may break it but CompositeResolverOverride seems unaccesable
+            return (T)Container.Resolve(typeof(T));
         }
     }
 }
