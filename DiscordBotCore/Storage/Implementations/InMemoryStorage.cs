@@ -9,7 +9,8 @@ namespace DiscordBotCore.Storage.Implementations
     //In memory storage implementation for storing information during runtime
 
     class InMemoryStorage : IDataStorage
-    {
+    {    
+
         Dictionary<string, object> _dictionary = new Dictionary<string, object>();
 
         public void StoreObject(object obj, string key)
