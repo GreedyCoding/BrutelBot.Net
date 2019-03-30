@@ -1,15 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DiscordBotCore
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            Unity.RegisterTypes();
+            Console.WriteLine("Hello Discord");
         }
     }
+
 }
