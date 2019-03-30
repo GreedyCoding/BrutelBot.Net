@@ -11,11 +11,14 @@ namespace DiscordBotCore
         {
             Unity.RegisterTypes();
             Console.WriteLine("Hello Discord");
+
             var discordBotConfig = new BotConfig
             {
                 Token = "ABC",
                 SocketConfig = SocketConfig.GetDefault()
             };
+
+            await Task.Delay(-1);
         }
     }
 
