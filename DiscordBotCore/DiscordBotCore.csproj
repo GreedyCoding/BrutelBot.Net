@@ -138,6 +138,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Discord\Entities\BotConfig.cs" />
+    <Compile Include="Discord\Connection.cs" />
+    <Compile Include="Discord\DiscordLogger.cs" />
+    <Compile Include="Discord\SocketConfig.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\IDataStorage.cs" />
