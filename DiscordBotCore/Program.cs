@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DiscordBotCore.Discord;
+using DiscordBotCore.Discord.Entities;
+using System;
 using System.Threading.Tasks;
 
 namespace DiscordBotCore
@@ -9,6 +11,11 @@ namespace DiscordBotCore
         {
             Unity.RegisterTypes();
             Console.WriteLine("Hello Discord");
+            var discordBotConfig = new BotConfig
+            {
+                Token = "ABC",
+                SocketConfig = SocketConfig.GetDefault()
+            };
         }
     }
 
