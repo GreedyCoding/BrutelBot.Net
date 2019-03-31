@@ -23,7 +23,7 @@ namespace DiscordBotCore
                     Token = storage.RestoreObject<string>("Config/BotToken")
                 });
 
-            await Task.Delay(-1);
+            Console.ReadKey();
         }
     }
 
