@@ -148,6 +148,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\IDataStorage.cs" />
     <Compile Include="Storage\Implementations\InMemoryStorage.cs" />
+    <Compile Include="Storage\Implementations\JsonStorage.cs" />
     <Compile Include="Unity.cs" />
   </ItemGroup>
   <ItemGroup>
