@@ -30,7 +30,7 @@ namespace DiscordBotCore
             _container = new UnityContainer();
             _container.RegisterSingleton<IDataStorage, JsonStorage>();
             _container.RegisterSingleton<ILogger, Logger>();
-            //_container.RegisterFactory<DiscordSocketClient>(i => SocketConfig.GetDefault());
+            //_container.RegisterFactory<DiscordSocketClient>(typeof(DiscordSocketConfig), "DefaultConfig", i => SocketConfig.GetDefault(), null);
             _container.RegisterType<DiscordSocketConfig>(new InjectionFactory(i => SocketConfig.GetDefault()));
             _container.RegisterSingleton<DiscordSocketClient>(new InjectionConstructor(typeof(DiscordSocketConfig)));
             _container.RegisterSingleton<Discord.Connection>();
