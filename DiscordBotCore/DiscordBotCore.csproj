@@ -138,9 +138,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Discord\CommandHandler.cs" />
     <Compile Include="Discord\Entities\BotConfig.cs" />
     <Compile Include="Discord\Connection.cs" />
     <Compile Include="Discord\DiscordLogger.cs" />
+    <Compile Include="Discord\Modules\InfoModule.cs" />
+    <Compile Include="Discord\Modules\SayModule.cs" />
     <Compile Include="Discord\SocketConfig.cs" />
     <Compile Include="ILogger.cs" />
     <Compile Include="Logger.cs" />
