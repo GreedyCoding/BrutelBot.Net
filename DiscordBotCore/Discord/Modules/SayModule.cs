@@ -11,17 +11,16 @@ namespace DiscordBotCore.Discord.Modules
     {
         [Command("say")]
 	    [Summary("Echoes a message.")]
-	    public Task SayAsync([Remainder] [Summary("The text to echo")] string echo)
+	    public async Task SayAsync([Remainder]string echo)
         {
             if (echo.ToLower() == "gaymo" || echo.ToLower() == "gaym0")
             {
-                ReplyAsync("Suck it!");
+                await ReplyAsync("Suck it!");
             }
             else
             {
-                ReplyAsync(echo);
+                await ReplyAsync(echo);
             }
-            return Task.CompletedTask;
         }
     }
 }
