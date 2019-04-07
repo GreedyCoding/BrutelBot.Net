@@ -156,6 +156,7 @@
     <Compile Include="Storage\Implementations\JsonStorage.cs" />
     <Compile Include="Unity.cs" />
     <Compile Include="StorageHandler.cs" />
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
