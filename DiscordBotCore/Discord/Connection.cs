@@ -18,16 +18,13 @@ namespace DiscordBotCore.Discord
             _client = client;
         }
 
-        internal async Task SetInfo(string gameName)
-        {
-            await _client.SetGameAsync(gameName);
-        }
 
         internal async Task Initialize(BotConfig config)
         {
             _client.Log += _logger.Log;
 
             await _client.LoginAsync(TokenType.Bot, config.Token);
+            await _client.SetGameAsync(config.BotGame);
             await _client.StartAsync();
 
             await Task.Delay(-1);
