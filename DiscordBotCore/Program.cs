@@ -7,10 +7,12 @@ namespace DiscordBotCore
 {
     class Program
     {
+        static BotConfig config;
+
         static async Task Main(string[] args)
         {
             Unity.RegisterTypes();
-            Console.WriteLine("Hello Discord");
+            Console.WriteLine("Starting up BrutelOS...");
 
             var commands = Unity.Resolve<CommandHandler>();
             
@@ -18,11 +20,13 @@ namespace DiscordBotCore
 
             var connection = Unity.Resolve<Connection>();
 
-            await connection.Initialize(
-                new BotConfig
-                {
-                    Token = StorageHandler.GetToken() 
-                });
+            config = new BotConfig
+            {
+                Token = StorageHandler.GetToken(),
+                Prefix = StorageHandler.GetPrefix()
+            };
+
+            await connection.Initialize(config);
 
 
             Console.ReadKey();

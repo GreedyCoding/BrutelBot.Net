@@ -38,7 +38,6 @@ namespace DiscordBotCore
             _container.RegisterType<DiscordSocketConfig>(new InjectionFactory(i => SocketConfig.GetDefault()));
             //Lets Unity use DiscordSocketConfig as Constructor for DiscordSocketClient
             _container.RegisterSingleton<DiscordSocketClient>(new InjectionConstructor(typeof(DiscordSocketConfig)));
-            //TEST
             //Lets Unity use DiscordSocketConfig as Constructor for DiscordSocketClient
             _container.RegisterSingleton<CommandService>(new InjectionConstructor(typeof(CommandServiceConfig)));
             //Registering Discord.Connection as singleton so there will ever only be one
