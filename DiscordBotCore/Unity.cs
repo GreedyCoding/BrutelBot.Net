@@ -29,18 +29,13 @@ namespace DiscordBotCore
         public static void RegisterTypes()
         {
             _container = new UnityContainer();
-            //Lets Unity use JsonStorage as implementation for all IDataStorage interfaces
             _container.RegisterSingleton<IDataStorage, JsonStorage>();
-            //Lets Unity use out Logger implementation for all ILogger interfaces
             _container.RegisterSingleton<ILogger, Logger>();
             //Using a factory to get a SocketConfig to use as DiscordSocketConfig, InjectionFactory is going to be deprecated
             //_container.RegisterFactory<DiscordSocketClient>(typeof(DiscordSocketConfig), "DefaultConfig", i => SocketConfig.GetDefault(), null);
             _container.RegisterType<DiscordSocketConfig>(new InjectionFactory(i => SocketConfig.GetDefault()));
-            //Lets Unity use DiscordSocketConfig as Constructor for DiscordSocketClient
             _container.RegisterSingleton<DiscordSocketClient>(new InjectionConstructor(typeof(DiscordSocketConfig)));
-            //Lets Unity use DiscordSocketConfig as Constructor for DiscordSocketClient
             _container.RegisterSingleton<CommandService>(new InjectionConstructor(typeof(CommandServiceConfig)));
-            //Registering Discord.Connection as singleton so there will ever only be one
             _container.RegisterSingleton<Discord.Connection>();
         }
 
