@@ -29,6 +29,8 @@ namespace DiscordBotCore.Discord.Modules
                                          "!kick {user} {reason}* - Kicks a User\n" +
                                          "!mute {user} {minutes}* {reason}* - Mutes a user for specified amount of minutes\n" +
                                          "* Arguments are optional - days defaults to 1, minutes defaults to 15")
+                 .AddField("Delete", "!delete {amount}* {pinned}* - Deletes messages from a channel.\n" +
+                                     "*Arguments are optional - amount defaults to 10, pinned to false\n")
                  .WithFooter(footer => footer.Text = "©BrutelBot")
                  .WithCurrentTimestamp();
 
