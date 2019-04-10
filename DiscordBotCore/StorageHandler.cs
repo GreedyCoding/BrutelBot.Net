@@ -12,10 +12,21 @@ namespace DiscordBotCore
     {
         static IDataStorage storage = Unity.Resolve<IDataStorage>();
 
+        public static bool FileExists(string path)
+        {
+            return File.Exists(path);
+        }
+
+        public static void SaveObject(object obj, string path)
+        {
+            storage.StoreObject(obj, path);
+        }
+
         public static string GetToken()
         {
             if (FileExists("Config/BotToken.json"))
             {
+                Console.WriteLine("Bot token found.");
                 return storage.RestoreObject<string>("Config/BotToken");
             }
             else
@@ -23,14 +34,9 @@ namespace DiscordBotCore
                 Console.WriteLine("No Settings found. Reinitializing BrutelStorage!");
                 Console.WriteLine("Please Enter your Bot Token:");
                 string token = Console.ReadLine();
-                SetToken(token);
+                SaveObject(token, "Config/BotToken");
                 return token;
             }
-        }
-
-        public static void SetToken(string token)
-        {
-            storage.StoreObject(token, "Config/BotToken");
         }
 
         public static char GetPrefix()
@@ -44,21 +50,17 @@ namespace DiscordBotCore
                 Console.WriteLine("Set a prefix for your commands. Using a special character is recommended.");
                 char prefix = Console.ReadKey().KeyChar;
                 Console.WriteLine();
-                SetPrefix(prefix);
+                SaveObject(prefix, "Config/Prefix");
                 Console.WriteLine("BrutelStorage reinitialized. Bot is starting now");
                 return prefix;
 
             }
         }
 
-        public static void SetPrefix(char prefix)
+        public static string GetSetting(int index)
         {
-            storage.StoreObject(prefix, "Config/Prefix");
-        }
-
-        public static bool FileExists(string path)
-        {
-            return File.Exists(path);
+            string[] str = storage.RestoreObject<string[]>("Config/Test");
+            return str[index];
         }
     }
 }
