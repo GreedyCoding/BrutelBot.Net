@@ -13,6 +13,8 @@ namespace DiscordBotCore
         {
             Unity.RegisterTypes();
             Console.WriteLine("Starting up BrutelOS...");
+            Console.WriteLine("Trying to retrieve info from BrutelStorage.");
+
 
             var commands = Unity.Resolve<CommandHandler>();
             
@@ -27,7 +29,6 @@ namespace DiscordBotCore
             };
 
             await connection.Initialize(config);
-
 
             Console.ReadKey();
         }
