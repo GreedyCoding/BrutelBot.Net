@@ -15,7 +15,7 @@ namespace DiscordBotCore.Discord.Modules
         [Summary("Deletes messages from a channel. Ammount can be specified as argument. Defaults to 10, Maximum is 100")]
         [RequireUserPermission(GuildPermission.ManageMessages)]
         [RequireBotPermission(GuildPermission.ManageMessages)]
-        public async Task DeleteMessageAsync(int amount = 10)
+        public async Task DeleteMessageAsync(int amount = 10, bool pinned = false)
         {
             if (amount <= 0)
             {
@@ -26,7 +26,16 @@ namespace DiscordBotCore.Discord.Modules
             if (amount <= 100)
             {
                 var messages = await Context.Channel.GetMessagesAsync(Context.Message, Direction.Before, amount).FlattenAsync();
-                var filteredMessages = messages.Where(x => (DateTimeOffset.UtcNow - x.Timestamp).TotalDays <= 14);
+                var filteredMessages = messages;
+
+                if (pinned)
+                {
+                    filteredMessages = messages.Where(x => (DateTimeOffset.UtcNow - x.Timestamp).TotalDays <= 14);
+                }
+                else
+                {
+                    filteredMessages = messages.Where(x => (DateTimeOffset.UtcNow - x.Timestamp).TotalDays <= 14 && !x.IsPinned);
+                }
 
                 var count = filteredMessages.Count();
 
