@@ -11,16 +11,16 @@ namespace DiscordBotCore
 
         static async Task Main(string[] args)
         {
-            Unity.RegisterTypes();
+            IoC.RegisterTypes();
             Console.WriteLine("Starting up BrutelOS...");
             Console.WriteLine("Trying to retrieve info from BrutelStorage.");
 
 
-            var commands = Unity.Resolve<CommandHandler>();
+            var commands = IoC.Resolve<CommandHandler>();
             
             await commands.InstallCommandsAsync();
 
-            var connection = Unity.Resolve<Connection>();
+            var connection = IoC.Resolve<Connection>();
 
             config = new BotConfig
             {

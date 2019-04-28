@@ -154,7 +154,7 @@
     <Compile Include="Storage\IDataStorage.cs" />
     <Compile Include="Storage\Implementations\InMemoryStorage.cs" />
     <Compile Include="Storage\Implementations\JsonStorage.cs" />
-    <Compile Include="Unity.cs" />
+    <Compile Include="IoC.cs" />
     <Compile Include="StorageHandler.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>

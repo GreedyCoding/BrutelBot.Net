@@ -10,7 +10,7 @@ using Unity.Lifetime;
 
 namespace DiscordBotCore
 {
-    public static class Unity
+    public static class IoC
     {
         private static UnityContainer _container;
 
@@ -18,7 +18,7 @@ namespace DiscordBotCore
         {
             get
             {
-                if(_container == null)
+                if (_container == null)
                 {
                     RegisterTypes();
                 }
@@ -28,15 +28,23 @@ namespace DiscordBotCore
 
         public static void RegisterTypes()
         {
+            //Creating a unitycontainer to register singletons and factories
             _container = new UnityContainer();
+
+            //SINGLETONS
+            //Whenever an interface is needed unity uses the here defined implementation
             _container.RegisterSingleton<IDataStorage, JsonStorage>();
             _container.RegisterSingleton<ILogger, Logger>();
-            //Using a factory to get a SocketConfig to use as DiscordSocketConfig, InjectionFactory is going to be deprecated
-            //_container.RegisterFactory<DiscordSocketClient>(typeof(DiscordSocketConfig), "DefaultConfig", i => SocketConfig.GetDefault(), null);
-            _container.RegisterType<DiscordSocketConfig>(new InjectionFactory(i => SocketConfig.GetDefault()));
+            //Injecting objects into the constructor of the registered types
             _container.RegisterSingleton<DiscordSocketClient>(new InjectionConstructor(typeof(DiscordSocketConfig)));
             _container.RegisterSingleton<CommandService>(new InjectionConstructor(typeof(CommandServiceConfig)));
+            //Making Discord.Connection a singleton so there will always only be one connection
             _container.RegisterSingleton<Discord.Connection>();
+
+            //FACTORIES
+            //Creating an object with an factory to be used when needed
+            _container.RegisterFactory<DiscordSocketConfig>(x => SocketConfig.GetDefault());
+
         }
 
         public static T Resolve<T>()
@@ -46,3 +54,4 @@ namespace DiscordBotCore
         }
     }
 }
+

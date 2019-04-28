@@ -10,7 +10,7 @@ namespace DiscordBotCore
 {
     public class StorageHandler
     {
-        static IDataStorage storage = Unity.Resolve<IDataStorage>();
+        static IDataStorage storage = IoC.Resolve<IDataStorage>();
 
         public static bool FileExists(string path)
         {
