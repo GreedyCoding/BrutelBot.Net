@@ -138,10 +138,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigHandler.cs" />
     <Compile Include="Discord\CommandHandler.cs" />
     <Compile Include="Discord\Entities\BotConfig.cs" />
     <Compile Include="Discord\Connection.cs" />
     <Compile Include="Discord\DiscordLogger.cs" />
+    <Compile Include="Discord\Modules\FlashingModule.cs" />
     <Compile Include="Discord\Modules\DeleteModule.cs" />
     <Compile Include="Discord\Modules\HelpModule.cs" />
     <Compile Include="Discord\Modules\ModeratorModule.cs" />
@@ -155,7 +157,6 @@
     <Compile Include="Storage\Implementations\InMemoryStorage.cs" />
     <Compile Include="Storage\Implementations\JsonStorage.cs" />
     <Compile Include="IoC.cs" />
-    <Compile Include="StorageHandler.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>

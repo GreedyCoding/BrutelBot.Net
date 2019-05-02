@@ -33,7 +33,7 @@ namespace DiscordBotCore.Discord
             if (message == null) return;
 
             int argPos = 0;
-            if (!(message.HasCharPrefix(StorageHandler.GetPrefix(), ref argPos)) ||
+            if (!(message.HasCharPrefix(ConfigHandler.config.Prefix, ref argPos)) ||
                 message.HasMentionPrefix(_client.CurrentUser, ref argPos) ||
                 message.Author.IsBot) return;
 

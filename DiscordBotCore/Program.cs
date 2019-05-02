@@ -7,30 +7,19 @@ namespace DiscordBotCore
 {
     class Program
     {
-        static BotConfig config;
-
         static async Task Main(string[] args)
         {
-            IoC.RegisterTypes();
             Console.WriteLine("Starting up BrutelOS...");
-            Console.WriteLine("Trying to retrieve info from BrutelStorage.");
 
+            IoC.RegisterTypes();
 
             var commands = IoC.Resolve<CommandHandler>();
-            
             await commands.InstallCommandsAsync();
 
             var connection = IoC.Resolve<Connection>();
+            await connection.Initialize(ConfigHandler.config);
 
-            config = new BotConfig
-            {
-                Token = StorageHandler.GetToken(),
-                Prefix = StorageHandler.GetPrefix()
-            };
-
-            await connection.Initialize(config);
-
-            Console.ReadKey();
+            await Task.Delay(-1);
         }
 
     }
