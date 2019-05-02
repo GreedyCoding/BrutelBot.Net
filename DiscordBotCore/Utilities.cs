@@ -8,9 +8,12 @@ namespace DiscordBotCore
 {
     public static class Utilities
     {
-        public static int ReturnInt(int i)
+        public static void ClearLastConsoleLine()
         {
-            return i;
+            int currentLineCursor = Console.CursorTop;
+            Console.SetCursorPosition(0, Console.CursorTop -1);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, currentLineCursor);
         }
     }
 }
