@@ -28,9 +28,7 @@ namespace DiscordBotCore
             else
             {
                 Console.WriteLine("No BrutelConfig found.");
-                Console.WriteLine(".");
-                Console.WriteLine(".");
-                Console.WriteLine(".");
+                Utilities.WriteDashLine();
                 SetConfig();
             }
         }

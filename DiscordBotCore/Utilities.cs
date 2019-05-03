@@ -15,5 +15,10 @@ namespace DiscordBotCore
             Console.Write(new string(' ', Console.WindowWidth));
             Console.SetCursorPosition(0, currentLineCursor);
         }
+        public static void WriteDashLine()
+        {
+            Console.Write(new string('-', Console.WindowWidth));
+        }
+
     }
 }
