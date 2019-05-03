@@ -1,2 +1,2 @@
 # DiscordBot.Net
-A Discord bot build on ASP.NetCore
+A Discord bot using the Discord.Net Library.
