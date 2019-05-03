@@ -3,6 +3,7 @@ using Discord.Commands;
 using Discord.WebSocket;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,22 +16,11 @@ namespace DiscordBotCore.Discord.Modules
         [Summary("Sets the bot userstatus to flashing between status")]
         [RequireUserPermission(GuildPermission.Administrator)]
         [RequireBotPermission(GuildPermission.Administrator)]
-        public async Task SetBlinking()
+        public async Task StartBlinking()
         {
-            bool isBlinking = false;
-
-            if (!isBlinking)
-            {
-                isBlinking = true;
-            }
-            else
-            {
-                isBlinking = false;
-            }
-
-            await Context.Client.SetStatusAsync(UserStatus.Online);
-
-            while (isBlinking)
+            Stopwatch s = new Stopwatch();
+            s.Start();
+            while (s.Elapsed < TimeSpan.FromSeconds(10))
             {
                 await Context.Client.SetStatusAsync(UserStatus.Online);
                 await Task.Delay(500);
@@ -39,7 +29,8 @@ namespace DiscordBotCore.Discord.Modules
                 await Context.Client.SetStatusAsync(UserStatus.DoNotDisturb);
                 await Task.Delay(500);
             }
-
+            s.Stop();
+            await Context.Client.SetStatusAsync(UserStatus.Online);
         }
     }
 }
