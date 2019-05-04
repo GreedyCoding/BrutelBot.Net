@@ -11,22 +11,7 @@ namespace DiscordBotCore
         {
             Console.WriteLine("Starting up BrutelOS...");
 
-            if (args != null)
-            {
-                foreach (string arg in args)
-                {
-                    if(arg == "--reset")
-                    {
-                        Utilities.WriteDashLine();
-                        Console.WriteLine("Flag for config reset is set.\n" +
-                                          "If you dont want to reset the config of the bot, please close the program,\n" +
-                                          "and make sure you dont have any startarguments specified");
-                        Utilities.WriteDashLine();
-                        ConfigHandler.SetConfig();
-                    }
-                }
-            }
-
+            Utilities.CheckStartArguments(args);
 
             IoC.RegisterTypes();
 

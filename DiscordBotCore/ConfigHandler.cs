@@ -28,7 +28,7 @@ namespace DiscordBotCore
             else
             {
                 Console.WriteLine("No BrutelConfig found.");
-                Utilities.WriteDashLine();
+                Utilities.WriteLineOfChars('-');
                 SetConfig();
             }
         }
@@ -60,7 +60,7 @@ namespace DiscordBotCore
             string token = Console.ReadLine();
             newConfig.Token = token;
 
-            Utilities.ClearLastConsoleLine();
+            Utilities.ClearLastLine();
 
             Console.WriteLine("Token initialized, please enter your desired command prefix.");
             Console.WriteLine("Using a special character is advised!");
