@@ -139,10 +139,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigHandler.cs" />
+    <Compile Include="Discord\DiscordUtilities.cs" />
     <Compile Include="Discord\CommandHandler.cs" />
     <Compile Include="Discord\Entities\BotConfig.cs" />
     <Compile Include="Discord\Connection.cs" />
     <Compile Include="Discord\DiscordLogger.cs" />
+    <Compile Include="Discord\Modules\MoveModule.cs" />
     <Compile Include="Discord\Modules\FlashingModule.cs" />
     <Compile Include="Discord\Modules\DeleteModule.cs" />
     <Compile Include="Discord\Modules\HelpModule.cs" />
