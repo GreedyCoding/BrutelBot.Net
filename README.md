@@ -13,6 +13,7 @@ I am currently developing this Bot for learning purposes and for use in my perso
 
 !flash - Lets the Bot StatusIndicator blink for 10 seconds
 
+!help - Sends and embed message to the channel with all available commands
 
 !kick {user} {reason}* - Kicks a user from the channel
 
