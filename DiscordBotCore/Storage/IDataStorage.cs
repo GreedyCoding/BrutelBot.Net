@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiscordBotCore.Storage
+namespace BrutelBot.Storage
 {
     //Interface for storing data in distinct storage types
 

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiscordBotCore.Discord
+namespace BrutelBot.Discord
 {
     static class DiscordUtilities
     {

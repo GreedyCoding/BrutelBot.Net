@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
-using DiscordBotCore.Discord.Entities;
+using BrutelBot.Discord.Entities;
 
-namespace DiscordBotCore.Discord
+namespace BrutelBot.Discord
 {
     public class Connection
     {

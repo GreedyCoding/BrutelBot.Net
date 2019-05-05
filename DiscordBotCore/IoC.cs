@@ -1,14 +1,14 @@
 ﻿using Discord.Commands;
 using Discord.WebSocket;
-using DiscordBotCore.Discord;
-using DiscordBotCore.Storage;
-using DiscordBotCore.Storage.Implementations;
+using BrutelBot.Discord;
+using BrutelBot.Storage;
+using BrutelBot.Storage.Implementations;
 using System;
 using Unity;
 using Unity.Injection;
 using Unity.Lifetime;
 
-namespace DiscordBotCore
+namespace BrutelBot
 {
     public static class IoC
     {

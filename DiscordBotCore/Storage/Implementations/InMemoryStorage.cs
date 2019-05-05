@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiscordBotCore.Storage.Implementations
+namespace BrutelBot.Storage.Implementations
 {
     //In memory storage implementation for storing information during runtime
 

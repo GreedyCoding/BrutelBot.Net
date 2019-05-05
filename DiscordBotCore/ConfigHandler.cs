@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
-using DiscordBotCore.Discord.Entities;
+using BrutelBot.Discord.Entities;
 
-namespace DiscordBotCore
+namespace BrutelBot
 {
     public static class ConfigHandler
     {

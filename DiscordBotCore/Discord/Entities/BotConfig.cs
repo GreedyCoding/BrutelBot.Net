@@ -1,4 +1,4 @@
-﻿namespace DiscordBotCore.Discord.Entities
+﻿namespace BrutelBot.Discord.Entities
 {
     public class BotConfig
     {

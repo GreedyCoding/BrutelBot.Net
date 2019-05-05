@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Discord;
 
-namespace DiscordBotCore.Discord
+namespace BrutelBot.Discord
 {
     public class DiscordLogger
     {

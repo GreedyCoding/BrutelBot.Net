@@ -1,7 +1,7 @@
 ﻿using Discord;
 using Discord.WebSocket;
 
-namespace DiscordBotCore.Discord
+namespace BrutelBot.Discord
 {
     public static class SocketConfig
     {

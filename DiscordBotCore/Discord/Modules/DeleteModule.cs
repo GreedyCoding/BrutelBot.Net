@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiscordBotCore.Discord.Modules
+namespace BrutelBot.Discord.Modules
 {
     public class DeleteModule : ModuleBase<SocketCommandContext>
     {

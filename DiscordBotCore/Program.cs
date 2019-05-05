@@ -1,9 +1,9 @@
-﻿using DiscordBotCore.Discord;
-using DiscordBotCore.Discord.Entities;
+﻿using BrutelBot.Discord;
+using BrutelBot.Discord.Entities;
 using System;
 using System.Threading.Tasks;
 
-namespace DiscordBotCore
+namespace BrutelBot
 {
     class Program
     {

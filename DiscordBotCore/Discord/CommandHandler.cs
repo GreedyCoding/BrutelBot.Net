@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiscordBotCore.Discord
+namespace BrutelBot.Discord
 {
     public class CommandHandler
     {
