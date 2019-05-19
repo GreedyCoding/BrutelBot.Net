@@ -97,6 +97,9 @@
     <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
     </Reference>
@@ -138,12 +141,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\ApiHandler.cs" />
+    <Compile Include="API\Xkcd\ComicHandler.cs" />
+    <Compile Include="API\Xkcd\ComicModel.cs" />
     <Compile Include="ConfigHandler.cs" />
     <Compile Include="Discord\DiscordUtilities.cs" />
     <Compile Include="Discord\CommandHandler.cs" />
     <Compile Include="Discord\Entities\BotConfig.cs" />
     <Compile Include="Discord\Connection.cs" />
     <Compile Include="Discord\DiscordLogger.cs" />
+    <Compile Include="Discord\Modules\XkcdModule.cs" />
     <Compile Include="Discord\Modules\RaffleModule.cs" />
     <Compile Include="Discord\Modules\MoveModule.cs" />
     <Compile Include="Discord\Modules\FlashingModule.cs" />
