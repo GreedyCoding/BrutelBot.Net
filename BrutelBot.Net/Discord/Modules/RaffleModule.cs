@@ -22,7 +22,7 @@ namespace BrutelBot.Discord.Modules
             await Task.Delay(timeInMs);
 
             //Getting the messages sent to the channel
-            await Context.Channel.GetMessageAsync(575315982193655809);
+            await Context.Channel.GetMessageAsync(Context.Channel.Id);
             var messages = await Context.Channel.GetMessagesAsync().FlattenAsync();
             //Add a bit of delay because the async call can take time and we may get unwanted messages in our collection
             messages = messages.Where(x => (DateTimeOffset.UtcNow - x.Timestamp).TotalMilliseconds <= (timeInMs - delayInMs));

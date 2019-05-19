@@ -144,7 +144,7 @@
     <Compile Include="Discord\Entities\BotConfig.cs" />
     <Compile Include="Discord\Connection.cs" />
     <Compile Include="Discord\DiscordLogger.cs" />
-    <Compile Include="Discord\Modules\RandomNumberModule.cs" />
+    <Compile Include="Discord\Modules\RaffleModule.cs" />
     <Compile Include="Discord\Modules\MoveModule.cs" />
     <Compile Include="Discord\Modules\FlashingModule.cs" />
     <Compile Include="Discord\Modules\DeleteModule.cs" />
