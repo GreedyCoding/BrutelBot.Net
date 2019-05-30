@@ -19,7 +19,7 @@ namespace BrutelBot.Discord
         }
 
 
-        internal async Task Initialize(BotConfig config)
+        internal async Task InitializeAsync(BotConfig config)
         {
             _client.Log += _logger.Log;
 

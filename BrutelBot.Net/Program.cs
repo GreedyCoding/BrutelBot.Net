@@ -1,5 +1,6 @@
 ﻿using BrutelBot.Discord;
 using BrutelBot.Discord.Entities;
+using BrutelBot.Music;
 using System;
 using System.Threading.Tasks;
 
@@ -7,6 +8,8 @@ namespace BrutelBot
 {
     class Program
     {
+        public static MusicService musicPlayer = IoC.Resolve<MusicService>();
+
         static async Task Main(string[] args)
         {
             Console.WriteLine("Starting up BrutelOS...");
@@ -18,8 +21,10 @@ namespace BrutelBot
             var commands = IoC.Resolve<CommandHandler>();
             await commands.InstallCommandsAsync();
 
+            await musicPlayer.InitializeAsync();
+
             var connection = IoC.Resolve<Connection>();
-            await connection.Initialize(ConfigHandler.config);
+            await connection.InitializeAsync(ConfigHandler.config);
 
             await Task.Delay(-1);
         }
