@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
 using BrutelBot.Discord.Entities;
+using BrutelBot.Discord.Logging;
 
 namespace BrutelBot.Discord
 {
@@ -10,9 +11,9 @@ namespace BrutelBot.Discord
     {
         private readonly DiscordSocketClient _client;
 
-        private readonly DiscordLogger _logger;
+        private readonly ILogger _logger;
 
-        public Connection(DiscordLogger logger, DiscordSocketClient client)
+        public Connection(ILogger logger, DiscordSocketClient client)
         {
             _logger = logger;
             _client = client;

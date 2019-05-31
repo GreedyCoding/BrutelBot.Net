@@ -155,7 +155,6 @@
     <Compile Include="Discord\CommandHandler.cs" />
     <Compile Include="Discord\Entities\BotConfig.cs" />
     <Compile Include="Discord\Connection.cs" />
-    <Compile Include="Discord\DiscordLogger.cs" />
     <Compile Include="Discord\Modules\MusicModule.cs" />
     <Compile Include="Discord\Modules\XkcdModule.cs" />
     <Compile Include="Discord\Modules\RaffleModule.cs" />
@@ -166,8 +165,8 @@
     <Compile Include="Discord\Modules\ModeratorModule.cs" />
     <Compile Include="Discord\Modules\SayModule.cs" />
     <Compile Include="Discord\SocketConfig.cs" />
-    <Compile Include="ILogger.cs" />
-    <Compile Include="Logger.cs" />
+    <Compile Include="Discord\Logging\ILogger.cs" />
+    <Compile Include="Discord\Logging\Implementations\Logger.cs" />
     <Compile Include="Music\MusicService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -184,6 +183,9 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lavalink\Lavalink.jar" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,14 +14,14 @@ namespace BrutelBot
         {
             Console.WriteLine("Starting up BrutelOS...");
 
+            await musicPlayer.InitializeAsync();
+
             Utilities.CheckStartArguments(args);
 
             IoC.RegisterTypes();
 
             var commands = IoC.Resolve<CommandHandler>();
             await commands.InstallCommandsAsync();
-
-            await musicPlayer.InitializeAsync();
 
             var connection = IoC.Resolve<Connection>();
             await connection.InitializeAsync(ConfigHandler.config);

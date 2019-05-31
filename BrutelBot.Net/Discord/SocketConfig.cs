@@ -9,7 +9,7 @@ namespace BrutelBot.Discord
         {
             return new DiscordSocketConfig
             {
-                LogLevel = LogSeverity.Verbose
+                LogLevel = LogSeverity.Debug
             };
         }
 

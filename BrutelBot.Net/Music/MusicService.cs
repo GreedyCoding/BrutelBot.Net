@@ -1,4 +1,5 @@
-﻿using Discord;
+﻿using BrutelBot.Discord.Logging;
+using Discord;
 using Discord.WebSocket;
 using System;
 using System.Collections.Generic;
@@ -17,18 +18,20 @@ namespace BrutelBot.Music
         private LavaSocketClient _lavaSocketClient;
         private DiscordSocketClient _client;
         private LavaPlayer _player;
+        private ILogger _logger;
 
-        public MusicService(LavaRestClient lavaRestClient, DiscordSocketClient client, LavaSocketClient lavaSocketClient)
+        public MusicService(LavaRestClient lavaRestClient, DiscordSocketClient client, LavaSocketClient lavaSocketClient, ILogger logger)
         {
             _client = client;
             _lavaRestClient = lavaRestClient;
             _lavaSocketClient = lavaSocketClient;
+            _logger = logger;
         }
 
         public Task InitializeAsync()
         {
             _client.Ready += ClientReadyAsync;
-            _lavaSocketClient.Log += LogAsync;
+            _lavaSocketClient.Log += _logger.Log;
             _lavaSocketClient.OnTrackFinished += TrackFinished;
             return Task.CompletedTask;
         }
@@ -142,12 +145,6 @@ namespace BrutelBot.Music
             }
 
             await player.PlayAsync(nextTrack);
-        }
-
-        private Task LogAsync(LogMessage logMessage)
-        {
-            Console.WriteLine(logMessage.Message);
-            return Task.CompletedTask;
         }
     }
 }
