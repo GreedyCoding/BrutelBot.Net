@@ -9,7 +9,7 @@ namespace BrutelBot.Discord
 {
     public class Connection
     {
-        private readonly DiscordSocketClient _client;
+        public readonly DiscordSocketClient _client;
 
         private readonly ILogger _logger;
 
