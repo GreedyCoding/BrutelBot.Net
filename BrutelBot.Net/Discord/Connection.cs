@@ -3,23 +3,24 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
 using BrutelBot.Discord.Entities;
+using BrutelBot.Discord.Logging;
 
 namespace BrutelBot.Discord
 {
     public class Connection
     {
-        private readonly DiscordSocketClient _client;
+        public readonly DiscordSocketClient _client;
 
-        private readonly DiscordLogger _logger;
+        private readonly ILogger _logger;
 
-        public Connection(DiscordLogger logger, DiscordSocketClient client)
+        public Connection(ILogger logger, DiscordSocketClient client)
         {
             _logger = logger;
             _client = client;
         }
 
 
-        internal async Task Initialize(BotConfig config)
+        internal async Task InitializeAsync(BotConfig config)
         {
             _client.Log += _logger.Log;
 

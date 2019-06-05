@@ -1,4 +1,5 @@
-﻿using Discord.Commands;
+﻿using Discord;
+using Discord.Commands;
 using Discord.WebSocket;
 using BrutelBot.Discord;
 using BrutelBot.Storage;
@@ -7,6 +8,11 @@ using System;
 using Unity;
 using Unity.Injection;
 using Unity.Lifetime;
+using BrutelBot.Discord.Modules;
+using BrutelBot.Music;
+using BrutelBot.Discord.Logging;
+using BrutelBot.Discord.Logging.Implementations;
+using Victoria;
 
 namespace BrutelBot
 {
@@ -37,14 +43,18 @@ namespace BrutelBot
             _container.RegisterSingleton<ILogger, Logger>();
             //Injecting objects into the constructor of the registered types
             _container.RegisterSingleton<DiscordSocketClient>(new InjectionConstructor(typeof(DiscordSocketConfig)));
+            _container.RegisterSingleton<LavaRestClient>(new InjectionConstructor(typeof (Configuration)));
             _container.RegisterSingleton<CommandService>(new InjectionConstructor(typeof(CommandServiceConfig)));
-            //Making Discord.Connection a singleton so there will always only be one connection
-            _container.RegisterSingleton<Discord.Connection>();
+            //Registering these types as singletons so there will always only be one
+            _container.RegisterSingleton<Connection>();
+            _container.RegisterSingleton<CommandHandler>();
+            _container.RegisterSingleton<LavaSocketClient>();
+            _container.RegisterSingleton<MusicService>();
 
             //FACTORIES
             //Creating an object with an factory to be used when needed
             _container.RegisterFactory<DiscordSocketConfig>(x => SocketConfig.GetDefault());
-
+            _container.RegisterFactory<MusicModule>(x => _container.Resolve<MusicService>());
         }
 
         public static T Resolve<T>()
