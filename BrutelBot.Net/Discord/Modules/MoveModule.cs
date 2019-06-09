@@ -19,9 +19,10 @@ namespace BrutelBot.Discord.Modules
         public async Task MovePlayers()
         {
             var players = Context.Guild.Users;
+            var filteredPlayers = players.Where(x => x.Status != UserStatus.Offline && !x.IsBot);
             var voiceChannels = Context.Guild.VoiceChannels;
 
-            foreach (var player in players)
+            foreach (var player in filteredPlayers)
             {
                 if (player.Activity != null)
                 {
@@ -44,6 +45,9 @@ namespace BrutelBot.Discord.Modules
                                 break;
                             case "Overwatch":
                                 await DiscordUtilities.MoveToChannel(player, voiceChannels, "Overwatch");
+                                break;
+                            case "MORDHAU":
+                                await DiscordUtilities.MoveToChannel(player, voiceChannels, "Mordhau");
                                 break;
                             default:
                                 await DiscordUtilities.MoveToChannel(player, voiceChannels, "Other Games");
