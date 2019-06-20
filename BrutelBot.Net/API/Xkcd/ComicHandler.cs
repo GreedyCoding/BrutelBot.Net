@@ -22,7 +22,7 @@ namespace BrutelBot.API.Xkcd
                 url = "https://xkcd.com/info.0.json";
             }
 
-            using (HttpResponseMessage response = await ApiHandler.ApiClient.GetAsync(url))
+            using (HttpResponseMessage response = await ApiHandler.httpClient.GetAsync(url))
             {
                 if (response.IsSuccessStatusCode)
                 {

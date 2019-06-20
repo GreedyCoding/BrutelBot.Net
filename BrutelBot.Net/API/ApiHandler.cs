@@ -10,13 +10,13 @@ namespace BrutelBot.API
 {
     public static class ApiHandler
     {
-        public static HttpClient ApiClient { get; set; }
+        public static HttpClient httpClient { get; set; }
          
         static ApiHandler()
         {
-            ApiClient = new HttpClient();
-            ApiClient.DefaultRequestHeaders.Accept.Clear();
-            ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
     }
 }
